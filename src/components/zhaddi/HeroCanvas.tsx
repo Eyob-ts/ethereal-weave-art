@@ -66,21 +66,21 @@ const fragment = /* glsl */ `
   varying vec3 vNormalW;
 
   void main(){
-    vec3 ivory=vec3(0.96,0.94,0.91);
+    vec3 ivory=vec3(0.92,0.88,0.82);
     vec3 gold=vec3(0.83,0.69,0.22);
-    vec3 deep=vec3(0.04,0.04,0.07);
+    vec3 deep=vec3(0.035,0.035,0.06);
 
     vec3 viewDir=vec3(0.0,0.0,1.0);
-    float fres=pow(1.0-max(dot(normalize(vNormalW),viewDir),0.0),2.5);
-    float sheen=smoothstep(0.0,0.6,vElev+0.3);
+    float fres=pow(1.0-max(dot(normalize(vNormalW),viewDir),0.0),3.0);
+    float sheen=smoothstep(-0.1,0.55,vElev);
 
-    vec3 col=mix(deep,ivory,sheen*0.85);
-    col=mix(col,gold,fres*0.9);
-    // anisotropic shimmer streaks
+    vec3 col=mix(deep,ivory,sheen*0.4);
+    col=mix(col,gold,fres*0.55);
     float streak=sin((vUv.y*40.0)+uTime*0.6+vElev*8.0)*0.5+0.5;
-    col+=gold*streak*0.06*sheen;
-    float vignette=smoothstep(1.1,0.2,distance(vUv,vec2(0.5)));
+    col+=gold*streak*0.05*sheen;
+    float vignette=smoothstep(1.2,0.15,distance(vUv,vec2(0.5)));
     col*=vignette;
+    col=mix(deep,col,0.92);
     gl_FragColor=vec4(col,1.0);
   }
 `;
@@ -95,7 +95,7 @@ function Silk() {
     () => ({
       uTime: { value: 0 },
       uMouse: { value: new THREE.Vector2(0, 0) },
-      uWind: { value: 1.0 },
+      uWind: { value: 0.6 },
     }),
     [],
   );
