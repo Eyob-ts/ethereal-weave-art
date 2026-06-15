@@ -19,6 +19,13 @@
  */
 
 @theme inline {
+  --color-zhaddi-black: var(--zhaddi-black);
+  --color-zhaddi-ivory: var(--zhaddi-ivory);
+  --color-zhaddi-gold: var(--zhaddi-gold);
+  --color-zhaddi-blush: var(--zhaddi-blush);
+  --font-serif: "Cinzel", serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "Jost", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,6 +69,11 @@
 }
 
 :root {
+  --zhaddi-black: #0a0a0f;
+  --zhaddi-ivory: #f5f0e8;
+  --zhaddi-gold: #d4af37;
+  --zhaddi-blush: #e8d5d0;
+  --ease-silk: cubic-bezier(0.16, 1, 0.3, 1);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -140,5 +152,120 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+/* ============ Zhaddi luxury landing ============ */
+.zhaddi-root {
+  background-color: var(--zhaddi-black);
+  color: var(--zhaddi-ivory);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.zhaddi-root ::selection {
+  background: color-mix(in oklab, var(--zhaddi-gold) 35%, transparent);
+  color: var(--zhaddi-ivory);
+}
+
+@media (pointer: fine) {
+  .zhaddi-root,
+  .zhaddi-root * {
+    cursor: none;
+  }
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(
+    120deg,
+    #b8902a 0%,
+    #f6e3a1 40%,
+    #d4af37 60%,
+    #9c7a22 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.zhaddi-hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--zhaddi-gold) 60%, transparent),
+    transparent
+  );
+}
+
+@keyframes zhaddi-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-zhaddi-float {
+  animation: zhaddi-float 6s var(--ease-silk) infinite;
+}
+
+.zhaddi-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(8px);
+  transition:
+    opacity 1.1s var(--ease-silk),
+    transform 1.1s var(--ease-silk),
+    filter 1.1s var(--ease-silk);
+}
+.zhaddi-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.zhaddi-cursor-dot,
+.zhaddi-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 9999px;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.zhaddi-cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--zhaddi-gold);
+  box-shadow: 0 0 12px 2px color-mix(in oklab, var(--zhaddi-gold) 70%, transparent);
+}
+.zhaddi-cursor-ring {
+  width: 38px;
+  height: 38px;
+  border: 1px solid color-mix(in oklab, var(--zhaddi-gold) 55%, transparent);
+  transition: width 0.3s var(--ease-silk), height 0.3s var(--ease-silk);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zhaddi-reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .animate-zhaddi-float {
+    animation: none;
   }
 }
