@@ -28,9 +28,7 @@ function useGlyphTargets(glyph: string) {
       }
     }
     for (let i = 0; i < COUNT; i++) {
-      const [x, y] = hits.length
-        ? hits[Math.floor(Math.random() * hits.length)]
-        : [W / 2, H / 2];
+      const [x, y] = hits.length ? hits[Math.floor(Math.random() * hits.length)] : [W / 2, H / 2];
       targets[i * 3] = (x / W - 0.5) * 6;
       targets[i * 3 + 1] = -(y / H - 0.5) * 6;
       targets[i * 3 + 2] = (Math.random() - 0.5) * 0.4;
@@ -87,10 +85,7 @@ function Threads() {
     return s;
   }, []);
 
-  const uniforms = useMemo(
-    () => ({ uTime: { value: 0 }, uForm: { value: 0 } }),
-    [],
-  );
+  const uniforms = useMemo(() => ({ uTime: { value: 0 }, uForm: { value: 0 } }), []);
 
   useEffect(() => {
     const onClick = () => {

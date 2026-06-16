@@ -8,13 +8,13 @@ import { HeroCanvas } from "@/components/zhaddi/HeroCanvas";
 import { ThreadParticles } from "@/components/zhaddi/ThreadParticles";
 import { useReveal } from "@/components/zhaddi/useReveal";
 
-import atelier1 from "@/assets/zhaddi-atelier-1.jpg";
-import atelier2 from "@/assets/zhaddi-atelier-2.jpg";
-import atelier3 from "@/assets/zhaddi-atelier-3.jpg";
-import gownCelestial from "@/assets/gown-celestial.jpg";
-import gownNoir from "@/assets/gown-noir.jpg";
-import gownAureate from "@/assets/gown-aureate.jpg";
-import gownBlush from "@/assets/gown-blush.jpg";
+import atelier1 from "@/assets/zhaddi-atelier-1.png";
+import atelier2 from "@/assets/zhaddi-atelier-2.png";
+import atelier3 from "@/assets/zhaddi-atelier-3.png";
+import gownCelestial from "@/assets/gown-celestial.png";
+import gownNoir from "@/assets/gown-noir.png";
+import gownAureate from "@/assets/gown-aureate.png";
+import gownBlush from "@/assets/gown-blush.png";
 import veilImg from "@/assets/zhaddi-veil.jpg";
 
 export const Route = createFileRoute("/")({
@@ -52,9 +52,7 @@ function Loader({ done }: { done: boolean }) {
       style={{ opacity: done ? 0 : 1, pointerEvents: done ? "none" : "auto" }}
     >
       <div className="text-center">
-        <div className="font-serif text-4xl tracking-[0.5em] text-gradient-gold">
-          ZHADDI
-        </div>
+        <div className="font-serif text-4xl tracking-[0.5em] text-gradient-gold">ZHADDI</div>
         <div className="mx-auto mt-6 h-px w-40 overflow-hidden bg-white/10">
           <div
             className="h-full bg-zhaddi-gold transition-[width] duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
@@ -156,9 +154,9 @@ function Index() {
               Every stitch is a promise.
             </h2>
             <p className="mt-6 max-w-md font-display text-xl font-light leading-relaxed text-zhaddi-ivory/70">
-              Every fold, a whisper of devotion. Within our atelier, time slows.
-              Silk is coaxed, lace is breathed into being, and light is captured
-              thread by thread — until a gown becomes a memory you can wear.
+              Every fold, a whisper of devotion. Within our atelier, time slows. Silk is coaxed,
+              lace is breathed into being, and light is captured thread by thread — until a gown
+              becomes a memory you can wear.
             </p>
             <div className="zhaddi-hairline mt-10 w-2/3" />
           </div>
@@ -191,9 +189,7 @@ function Index() {
           <p className="zhaddi-reveal font-display text-sm uppercase tracking-[0.45em] text-zhaddi-gold/80">
             The Silhouettes
           </p>
-          <h2 className="zhaddi-reveal mt-4 font-serif text-4xl md:text-5xl">
-            The Collection
-          </h2>
+          <h2 className="zhaddi-reveal mt-4 font-serif text-4xl md:text-5xl">The Collection</h2>
         </div>
         <div
           ref={carouselRef}
@@ -314,9 +310,7 @@ function Index() {
           </form>
         </div>
         <footer className="mx-auto mt-28 max-w-7xl border-t border-white/5 pt-10 text-center">
-          <div className="font-serif text-2xl tracking-[0.4em] text-gradient-gold">
-            ZHADDI
-          </div>
+          <div className="font-serif text-2xl tracking-[0.4em] text-gradient-gold">ZHADDI</div>
           <p className="mt-3 font-display text-xs uppercase tracking-[0.3em] text-zhaddi-ivory/40">
             © {new Date().getFullYear()} Zhaddi Wedding — Silk &amp; Starlight
           </p>
@@ -326,15 +320,7 @@ function Index() {
   );
 }
 
-function Field({
-  label,
-  type,
-  name,
-}: {
-  label: string;
-  type: string;
-  name: string;
-}) {
+function Field({ label, type, name }: { label: string; type: string; name: string }) {
   return (
     <div>
       <label className="mb-2 block font-display text-xs uppercase tracking-[0.3em] text-zhaddi-ivory/50">
