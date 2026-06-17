@@ -7,13 +7,8 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
-  },
-  nitro: {
-    // Force-enable Nitro and use Netlify preset for deployment
-    preset: "netlify-static",
-  },
+  // Disable Nitro/SSR — deploy as a static SPA on Netlify.
+  // The netlify-static preset caused: "rollupOptions.input should not be an
+  // html file when building for SSR" during the nitro vite environment build.
+  nitro: false,
 });
