@@ -5,7 +5,8 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# SPA fallback for client-side routing
 [[redirects]]
   from = "/*"
-  to = "/_shell.html"
+  to = "/index.html"
   status = 200
