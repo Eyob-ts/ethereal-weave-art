@@ -13,5 +13,8 @@ export default defineConfig({
       enabled: true,
     },
   },
-  nitro: true,
+  // Disable Nitro server build for Netlify static deploys — we'll publish
+  // the static client output instead. This avoids prerender/server entry
+  // mismatches that can cause deploy-time failures.
+  nitro: false,
 });
