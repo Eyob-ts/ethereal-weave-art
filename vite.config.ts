@@ -11,4 +11,10 @@ export default defineConfig({
   // The netlify-static preset caused: "rollupOptions.input should not be an
   // html file when building for SSR" during the nitro vite environment build.
   nitro: false,
+  vite: {
+    build: {
+      // Emit manifest so generate-index.mjs can resolve the hashed entry filenames.
+      manifest: true,
+    },
+  },
 });
