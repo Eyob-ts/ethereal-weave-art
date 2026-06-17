@@ -12,4 +12,8 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  nitro: {
+    // Force-enable Nitro and use Netlify preset for deployment
+    preset: "netlify-static",
+  },
 });
